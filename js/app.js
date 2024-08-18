@@ -399,7 +399,8 @@ $('.categories-choice').on('click', function () {
 
 // Bouton 'annuler' pour revenir à l'écran d'accueil
 $('.close-pop-up').on('click', function () {
-    $('#categories-choice').fadeIn(100);
+    $('#products-choice').fadeIn(100);
+    $('.container-pop-up').fadeOut(100);
     resetChoiceSelected();
     resetDetailsMenu();
     resetDrinkSelected();

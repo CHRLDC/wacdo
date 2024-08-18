@@ -136,18 +136,18 @@ function eventProductClick() {
             // Mémoriser le choix
             setBaseMenu(product);
             //Afficher la suite des étapes (pour compléter le choix du menu)
-            showSection('#size-menu-choice');
+            $('#size-menu-choice').fadeIn(100);
             //Choix boissons
         } else if (category === "boissons") {
             setBaseDrink(product);
             generateDrinkChoiceSize(product);
-            showSection('#size-quantity-drink-alone-choice');
+            $('#size-quantity-drink-alone-choice').fadeIn(100);
             // Choix nuggets
         } else if (category === "encas" && product.nom.toLowerCase().includes("nuggets")) {
             setBaseOther(product);
             // Afficher les options de sauce
             displayProducts("sauces", 'sauce-choice-alone', './fragments/fragment-products-menu.html');
-            showSection('#sauce-choice-alone');
+            $('#sauce-choice-alone').fadeIn(100);
         } else {
             setBaseOther(product);
             // Ajouter le choix au panier
