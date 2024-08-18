@@ -230,20 +230,16 @@ function generateCartTotal(Cart) {
  * @returns {void}
  */
 function addRemoveEventHandlers(Cart, updateCartDisplay) {
-    $(document).on('click', '.remove-menu, .remove-item', function () {
-        // Récupérer la position de l'item
+    $('.remove-menu').on('click', function () {
         let index = $(this).data('index');
-
-        // Déterminer si c'est un menu ou un item
-        if ($(this).hasClass('remove-menu')) {
-            // Supprimer l'item dans cart.menu
-            Cart.menu.splice(index, 1);
-        } else if ($(this).hasClass('remove-item')) {
-            // Supprimer l'item dans cart.items
-            Cart.items.splice(index, 1);
-        }
-
-        // Mettre à jour l'affichage du panier
+        Cart.menu.splice(index, 1);
+        updateCartDisplay();
+        // Mettre à jour le nombre de produits affiché sur le bouton panier
+        displayNbProductsCart();
+    });
+    $('.remove-item').on('click', function () {
+        let index = $(this).data('index');
+        Cart.items.splice(index, 1);
         updateCartDisplay();
         // Mettre à jour le nombre de produits affiché sur le bouton panier
         displayNbProductsCart();
