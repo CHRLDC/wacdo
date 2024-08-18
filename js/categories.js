@@ -12,7 +12,7 @@ const categoryMap = {};
 async function loadCategories() {
     try {
         // Tente de récupérer les données des catégories à partir du fichier
-        const data = await $.getJSON('http://exam-front.cdacosta.mywebecom.ovh/api_data/categories.json');
+        const data = await $.getJSON('./data/categories.json'); // API non spécisée demandée: 'http://exam-front.cdacosta.mywebecom.ovh/api_data/categories.json'
         fillCategoryMap(data);
         // Retourne les données des catégories
         return data;
