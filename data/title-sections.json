@@ -1,0 +1,47 @@
+[
+    {
+        "category": "menus",
+        "title": "Nos menus",
+        "subtitle": "Un sandwich, une friture ou une salade et une boisson"
+    },
+    {
+        "category": "boissons",
+        "title": "Nos boissons",
+        "subtitle": "Une petite soif, sucrée, légère, rafraîchissante"
+    },
+    {
+        "category": "burgers",
+        "title": "Nos burgers",
+        "subtitle": "Des burgers savoureux pour tous les goûts"
+    },
+    {
+        "category": "Frites",
+        "title": "Nos frites",
+        "subtitle": "Dorées et croustillantes, parfaites à chaque bouchée"
+    },
+    {
+        "category": "encas",
+        "title": "Nos encas",
+        "subtitle": "Pour une petite faim à tout moment de la journée"
+    },
+    {
+        "category": "wraps",
+        "title": "Nos wraps",
+        "subtitle": "Légers et savoureux, enroulés avec soin"
+    },
+    {
+        "category": "salades",
+        "title": "Nos salades",
+        "subtitle": "Fraîches et croquantes, pour un repas léger"
+    },
+    {
+        "category": "desserts",
+        "title": "Nos desserts",
+        "subtitle": "Douceurs sucrées pour terminer en beauté"
+    },
+    {
+        "category": "sauces",
+        "title": "Nos sauces",
+        "subtitle": "La touche finale qui sublime vos plats"
+    }
+]

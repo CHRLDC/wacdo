@@ -1,0 +1,69 @@
+/**
+ * order.js
+ * Fonctions pour gérer la commande
+ */
+
+// Commencer la commande
+function startOrder(choix) {
+    // Génèrer un numéro de commande s'il n'existe pas encore
+    Cart.orderNumber = generateOrderNumber();
+    if (choix === 'sur-place') {
+        Cart.placeNumber = generatePlaceNumber();
+        Cart.orderType = 'Sur place';
+    }
+    // Génèrer un numéro de place 'Sur place' s'il n'existe pas encore
+    if (choix === 'a-emporter') {
+        Cart.orderType = 'À emporter';
+    }
+    // Première mise à jour du panier
+    updateCartDisplay();
+}
+
+//Normalement: prochains N° de commandes disponibles doit provenir de l'API, pour excercie: 2 fonctions Random
+/**
+ * Générer un numéro de commande unique 
+ * @returns {number}
+ */
+function generateOrderNumber() {
+    return Math.floor(10 + Math.random() * 90);
+}
+
+/**
+ * Générer un numéro de place 'Sur Place' unique
+ * @returns {number}
+ */
+function generatePlaceNumber() {
+    return Math.floor(100 + Math.random() * 900);
+}
+
+/**
+ * Envoyer les informations du panier à l'API
+ * @returns {void}
+ */
+function sendApiOrder() {
+    // Récupérer l'objet Cart depuis sessionStorage ou l'initialiser
+    let Cart = initializeCart();
+
+    //Afficher en console enattendant d'avoir l'URL de l'API
+    console.log(`Panier en formant JSON envoyé à l'API:`);
+    console.log(JSON.stringify(Cart));
+    return
+
+    // URL de l'API
+    const apiUrl = '';
+
+    // Envoyer le panier au format JSON à l'API
+    $.ajax({
+        url: apiUrl,
+        type: 'POST',
+        contentType: 'application/json',
+        // Convertir l'objet Cart en JSON pour l'envoyer
+        data: JSON.stringify(Cart),
+        success: function (response) {
+            // Si la requête réussit, afficher un message de succès
+        },
+        error: function (textStatus, errorThrown) {
+            // Si la requête échoue, afficher un message d'erreur
+        }
+    });
+}
