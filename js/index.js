@@ -143,3 +143,38 @@ function showSection(sectionId) {
     $('section').hide();
     $(sectionId).fadeIn(100);
 }
+
+// Fonction de nettoyage qui échappe les caractères spéciaux dans les chaînes de caractères
+function sanitizeData(data) {
+    if (typeof data === 'string') {
+        return data.replace(/[&<>"']/g, function (match) {
+            const escape = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return escape[match];
+        });
+    } else if (Array.isArray(data)) {
+        return data.map(sanitizeData);
+    } else if (typeof data === 'object' && data !== null) {
+        for (const key in data) {
+            if (data.hasOwnProperty(key)) {
+                data[key] = sanitizeData(data[key]);
+            }
+        }
+        return data;
+    } else {
+        return data;
+    }
+}
+/**
+ * Vérifie qu'un input ne contient que des chiffres
+ */
+function isInputSafe(input) {
+    // Vérifie que l'input ne contient que des chiffres
+    const safe = /^[0-9]+$/;
+    return safe.test(input);
+}

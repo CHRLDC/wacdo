@@ -66,18 +66,53 @@ $(document).on('click', '#pay', function () {
 
 });
 
+// Quand l'utilisateur saisit son numero de paiement (pour exercice)
+$(document).on('input', '#number-paiment', function () {
+    // Vérifie si le champ contient au moins 2 chiffres
+    if ($(this).val().length > 2) {
+        // Active le bouton
+        $('#send-paiment').prop('disabled', false);
+    } else {
+        // Désactive le bouton si le champ est vide
+        $('#send-paiment').prop('disabled', true);
+    }
+});
+
 // Bouton "send-paiment"
-$(document).on('click', '#send-paiment', function () {
-    // Vérifie le type de commande et affiche la section de confirmation correspondante
+// Activer le bouton si un chiffre est saisi
+$('#number-paiment').on('input', function () {
+    if ($(this).val().length > 0) {
+        $('#send-paiment').prop('disabled', false);
+    } else {
+        $('#send-paiment').prop('disabled', true);
+    }
+});
+
+// Gérer la soumission du formulaire
+$(document).on('submit', '#payment-form', function (event) {
+    // Empêche le comportement par défaut du formulaire
+    event.preventDefault();
+    // Récupère la valeur du numéro de paiement
+    const paymentNumber = $('#number-paiment').val();
+    // Vérifie que la valeur contient que des chiffres (pas d'injection de code possible)
+    if (!isInputSafe(paymentNumber)) {
+        alert('Votre numéro de paiment doit contenir au moins 3 chiffres.');
+        return;
+    }
+    // Effectue des vérifications sur le numéro de paiement
+    if (isNaN(paymentNumber) || paymentNumber.length === 2) {
+        alert('Votre numéro de paiment doit contenir au moins 3 chiffres.');
+        return;
+    }
+    // Si le numéro de paiement est valide, continuer avec le processus
     if (Cart.orderType.startsWith('Sur place')) {
         showSection('#confirmation-sur-place');
     } else {
-        // Affiche la fin
         showSection('#finish');
-        // Envoyer la commande à l'API
-        sendApiOrder();
+        sendApiOrder(); // Envoyer la commande à l'API
     }
-    // Faire disparaitre le panier
+
+    // Faire disparaître le panier
     $('#cart').fadeOut(0, function () {
         $('section').not('#MS-cart-btn').addClass('Dnone');
     });
@@ -91,18 +126,29 @@ $(document).on('click', '.finish-order', function () {
         let digit1 = $('input[name="digit1"]').val();
         let digit2 = $('input[name="digit2"]').val();
         let digit3 = $('input[name="digit3"]').val();
+
         // Vérifier que tous les chiffres sont bien remplis
         if (digit1 === '' || digit2 === '' || digit3 === '') {
-            alert('Veuillez saisir les 3 chiffres pour continuer.');
-            return; // Empêche la suite de l'exécution si un champ est vide
+            alert('Veuillez saisir les 3 chiffres du chevalet pour continuer.');
+            return;
         }
+
         // Combiner les 3 chiffres en un seul nombre
         let chevaletNumber = digit1 + digit2 + digit3;
+
+        // Vérifier la sécurité de l'entrée
+        if (!isInputSafe(chevaletNumber)) {
+            alert('Numéro de chevalet invalide. Veuillez entrer uniquement des chiffres.');
+            return;
+        }
+
         // Ajouter l'information au panier
         Cart.chevaletNumber = chevaletNumber;
     }
+
     // Envoyer la commande à l'API
     sendApiOrder();
+
     // Afficher la section de confirmation de fin de commande
     showSection('#finish');
 });

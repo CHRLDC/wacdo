@@ -14,8 +14,10 @@ async function loadCategories() {
         // Tente de récupérer les données des catégories à partir du fichier
         const data = await $.getJSON('./data/categories.json'); // API non spécisée demandée: 'http://exam-front.cdacosta.mywebecom.ovh/api_data/categories.json' bloque sur github car pas https
         fillCategoryMap(data);
-        // Retourne les données des catégories
-        return data;
+        // Assainir les données à l'entrée
+        const sanitizedData = sanitizeData(data);
+        // Retourner les données JSON assainies
+        return sanitizedData;
     } catch (error) {
         console.error(error);
         return {};

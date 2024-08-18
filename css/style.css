@@ -475,8 +475,6 @@ button:disabled {
     height: 80px;
 }
 
-
-
 /* CAROUSSEL CATEGORIES */
 .carousel-container,
 #sauce-carousel,
@@ -633,6 +631,11 @@ h4 {
     border-color: var(--color-yellow);
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 @media screen and (max-width: 1070px) {
 

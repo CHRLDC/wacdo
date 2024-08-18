@@ -39,8 +39,10 @@ async function loadProducts() {
     try {
         // Tente de récupérer les données des produits à partir du fichier
         const productsData = await $.getJSON('./data/products.json'); // API non sécurisée demandée: 'http://exam-front.cdacosta.mywebecom.ovh/api_data/products.json' bloque sur github car pas https
-        // Retourner les donner JSON
-        return productsData;
+        // Assainir les données à l'entrée
+        const sanitizedData = sanitizeData(productsData);
+        // Retourner les données JSON assainies
+        return sanitizedData;
     } catch (error) {
         console.error(error);
         // En cas d'erreur, retourne un objet vide pour éviter que l'app ne plante

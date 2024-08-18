@@ -281,17 +281,21 @@
         <section id="paiment" class="container-700 MS-container-700">
             <div class="container-base">
                 <h2 id="payment-title">Vous souhaitez régler cette commande ?</h2>
-                <label for="number-paiment">Saisir votre numéro de paiement</label>
-                <input type="number" name="number-paiment" id="number-paiment" class="paiement-input"
-                    aria-label="Numéro de paiement">
-                <div class="w100 flex justify-center gap16">
-                    <div>
-                        <button class="btn-back categories-choice" aria-label="Ne pas payer">Annuler</button>
+                <form id="payment-form">
+                    <label for="number-paiment">Saisir votre numéro de paiement</label>
+                    <input type="number" name="number-paiment" id="number-paiment" class="paiement-input"
+                        aria-label="Numéro de paiement">
+                    <div class="w100 flex justify-center gap16">
+                        <div>
+                            <button type="button" class="btn-back categories-choice"
+                                aria-label="Ne pas payer">Annuler</button>
+                        </div>
+                        <div>
+                            <button type="submit" id="send-paiment" class="btn-cta" aria-label="Payer la commande"
+                                disabled>Payer</button>
+                        </div>
                     </div>
-                    <div>
-                        <button id="send-paiment" class="btn-cta" aria-label="Payer la commande">Payer</button>
-                    </div>
-                </div>
+                </form>
             </div>
         </section>
 
@@ -310,11 +314,11 @@
                     </div>
                 </div>
                 <div id="number-chevalet" class="mAuto">
-                    <input type="text" name="digit1" maxlength="1" class="digit-input" pattern="[0-9]*"
+                    <input type="number" name="digit1" maxlength="1" class="digit-input" pattern="[0-9]*"
                         aria-label="Premier chiffre">
-                    <input type="text" name="digit2" maxlength="1" class="digit-input" pattern="[0-9]*"
+                    <input type="number" name="digit2" maxlength="1" class="digit-input" pattern="[0-9]*"
                         aria-label="Deuxième chiffre">
-                    <input type="text" name="digit3" maxlength="1" class="digit-input" pattern="[0-9]*"
+                    <input type="number" name="digit3" maxlength="1" class="digit-input" pattern="[0-9]*"
                         aria-label="Troisième chiffre">
                 </div>
                 <div class="w100 flex justify-center">
