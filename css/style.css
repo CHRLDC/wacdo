@@ -43,7 +43,7 @@
     font-size: 20px;
     font-family: var(--font-accessibility);
     background-color: var(--color-bg-cart);
-    z-index: 4;
+    z-index: 11;
 }
 
 /*FLEXBOX*/
@@ -641,9 +641,11 @@ input[type="number"]::-webkit-inner-spin-button {
 
     /* CLASSES GENERALES*/
     main {
-        margin-right: 0 !important;
-        margin-bottom: 120px !important;
-        margin-top: 180px !important;
+        margin: 170px 0 150px 0 !important;
+    }
+
+    h2 {
+        font-size: 16px;
     }
 
     /* PANIER */
@@ -671,6 +673,10 @@ input[type="number"]::-webkit-inner-spin-button {
         justify-content: center;
     }
 
+    .MS-justify-between {
+        justify-content: space-between;
+    }
+
     /* CLASSES SPECIFIQUES*/
     .title {
         font-size: 24px;
@@ -688,8 +694,20 @@ input[type="number"]::-webkit-inner-spin-button {
         gap: 32px;
     }
 
+    .MS-gap16 {
+        gap: 16px;
+    }
+
+    .MS-gap8 {
+        gap: 8px;
+    }
+
     .MS-Dnone {
         display: none;
+    }
+
+    .MS-mB20 {
+        margin-bottom: 20px;
     }
 
     /* TAILLES */
@@ -697,17 +715,22 @@ input[type="number"]::-webkit-inner-spin-button {
         width: 100% !important;
     }
 
-    /* CONTAINER BASE */
-    .container-base {
-        width: 100%;
-        padding: 16px;
+    /* CONTAINER */
+    .container-pop-up {
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 100vh;
+        padding: 16px 16px 150px 16px;
     }
 
-    .container-pop-up {
-        position: static;
-        transform: none;
-        padding: 32px 8px;
-        box-shadow: none;
+    #accompaniment-choice {
+        height: fit-content;
+    }
+
+    .container-base {
+        gap: 16px;
     }
 
     .container-products {
@@ -716,13 +739,14 @@ input[type="number"]::-webkit-inner-spin-button {
 
     .MS-container-700 {
         position: absolute;
-        top: -5%;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
+        height: 100vh;
     }
 
     .close-pop-up {
-        top: 215px;
+        top: 20px;
     }
 
     .return-pop-up {
@@ -735,11 +759,4 @@ input[type="number"]::-webkit-inner-spin-button {
         width: 100%;
     }
 
-    .btn-choice {
-        width: 100%;
-    }
-
-    .container-products {
-        padding: 0 16px;
-    }
 }

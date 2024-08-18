@@ -96,13 +96,13 @@ function toggleCategoriesCarousel(show) {
     if (show) {
         // Afficher le carrousel
         $('body').addClass('mCarousel');
-        $('#categories-choice').fadeIn(0);
-        $('.bg-landing').fadeOut(0);
+        $('#categories-choice').fadeIn(100);
+        $('.bg-landing').fadeOut(100);
     } else {
         // Masquer le carrousel
-        $('#categories-choice').fadeOut(0);
+        $('#categories-choice').fadeOut(100);
         $('body').removeClass('mCarousel');
-        $('.bg-landing').fadeIn(0);
+        $('.bg-landing').fadeIn(100);
     }
 }
 

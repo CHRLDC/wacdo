@@ -113,7 +113,7 @@ $(document).on('submit', '#payment-form', function (event) {
     }
 
     // Faire disparaître le panier
-    $('#cart').fadeOut(0, function () {
+    $('#cart').fadeOut(100, function () {
         $('section').not('#MS-cart-btn').addClass('Dnone');
     });
 });

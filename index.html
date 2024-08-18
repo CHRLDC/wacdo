@@ -8,7 +8,7 @@
     <meta name="description"
         content="Passez votre commande rapidement et facilement dans notre fast food. Choisissez entre une consommation sur place ou à emporter, et découvrez nos menus variés où nos burgers sont le meilleur.">
     <!-- Lien CSS -->
-    <link rel="stylesheet" href="./css/style.mini.css">
+    <link rel="stylesheet" href="./css/style.min.css">
     <!-- Favicon -->
     <link rel="icon" type="image/ico" href="./favicon.ico">
     <title>Wadco - Passez votre commande</title>
@@ -73,7 +73,7 @@
 
         <!-- Liste des produits d'une catégorie sélectionnée -->
         <section id="products-choice" aria-labelledby="products-choice-title">
-            <h2>Liste des produits</h2>
+            <h2 class="mB20">Liste des produits</h2>
             <ul class="container-products flex justify-center gap25 align-center p32">
                 <!-- Liste des produits d'une catégorie générés par JS -->
             </ul>
@@ -117,7 +117,7 @@
 
         <!-- Chemin menu: Choix de l'accompagnement d'un menu -->
         <section id="accompaniment-choice" class="container-pop-up" aria-labelledby="accompaniment-choice-title">
-            <div class="flex justify-between">
+            <div class="MS-mB20">
                 <div class="return-pop-up">
                     <button class="to-size-menu-choice btn-back"
                         aria-label="Retour à la sélection de taille de menu">Retour</button>
@@ -131,16 +131,14 @@
                     <p id="accompaniment-choice-title" class="title-button">Choisissez votre accompagnement</p>
                     <h2 class="mT20">Frites, potatoes, la pomme de terre dans tous ses états</h2>
                 </div>
-                <div>
-                    <div id="accompaniment-menu" class="flex justify-center align-center gap32">
-                        <!-- Affichage des tailles de frites en fonction de la taille du menu selectionné par JS -->
-                        <div id="accompaniment-salade" class="slct btn-choice select-button-border-grey" tabindex="0"
-                            role="button" aria-pressed="false" aria-label="Choisir une salade">
-                            <div class="illustration">
-                                <img src="./img/products/salades/PETITE-SALADE.png" alt="Choisir une salade">
-                            </div>
-                            <p class="title-button">Salade</p>
+                <div id="accompaniment-menu" class="flex justify-center align-center gap32">
+                    <!-- Affichage des tailles de frites en fonction de la taille du menu selectionné par JS -->
+                    <div id="accompaniment-salade" class="slct btn-choice select-button-border-grey" tabindex="0"
+                        role="button" aria-pressed="false" aria-label="Choisir une salade">
+                        <div class="illustration">
+                            <img src="./img/products/salades/PETITE-SALADE.png" alt="Choisir une salade">
                         </div>
+                        <p class="title-button">Salade</p>
                     </div>
                 </div>
                 <div class="w100 flex justify-center">
@@ -152,7 +150,7 @@
 
         <!-- Chemin menu: Choix de la sauce d'un menu -->
         <section id="sauce-choice" class="container-pop-up" aria-labelledby="sauce-choice-title">
-            <div>
+            <div class="MS-mB20">
                 <div class="return-pop-up">
                     <button class="to-accompaniment-choice btn-back"
                         aria-label="Retour à la sélection d'accompagnement">Retour</button>
@@ -186,7 +184,7 @@
 
         <!-- Chemin menu: Choix de la boisson d'un menu -->
         <section id="drink-choice" class="container-pop-up">
-            <div>
+            <div class="MS-mB20">
                 <div class="return-pop-up">
                     <button class="to-sauce-choice btn-back" aria-label="Retour à la sélection de sauce">Retour</button>
                 </div>
@@ -221,7 +219,7 @@
         <section id="size-quantity-drink-alone-choice" class="container-pop-up"
             aria-labelledby="size-quantity-drink-title">
             <div class="column gap32">
-                <div>
+                <div class="MS-mB20">
                     <div class="trash close-pop-up">
                         <img src="./img/images/supprimer.png" alt="Une croix pour fermer cette pop-up">
                     </div>
@@ -248,7 +246,7 @@
 
         <!-- Hors catégorie menu: Choix d'une sauce hors menu -->
         <section id="sauce-choice-alone" class="container-pop-up">
-            <div>
+            <div class="MS-mB20">
                 <div class="trash close-pop-up">
                     <img src="./img/images/supprimer.png" alt="Une croix pour fermer cette pop-up">
                 </div>
@@ -346,7 +344,7 @@
     </main>
 
     <!-- Inclure la librairie jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <!-- <script src="./node_modules/jquery/dist/jquery.min.js"></script> -->
     <!-- Chargement auto des fichiers JS -->
     <script src="./js/autoLoadJS.js" defer></script>
