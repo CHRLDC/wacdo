@@ -64,11 +64,8 @@ async function sendApiOrder() {
         }
     }
 
-    console.log("Panier mis à jour :", Cart);
-
     // Simuler l'envoi du panier à l'API en affichant le JSON en console
     console.log(JSON.stringify(Cart));
-
     return;
 
     // URL de l'API (à remplacer par la vraie URL)
