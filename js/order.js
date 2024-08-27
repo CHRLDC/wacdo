@@ -66,7 +66,7 @@ async function sendApiOrder() {
 
     // Simuler l'envoi du panier à l'API en affichant le JSON en console
     console.log(JSON.stringify(Cart));
-    return;
+    //return;
 
     // URL de l'API
     const apiUrl = 'http://exam-back.cdacosta.mywebecom.ovh/receved_order_api.php';
