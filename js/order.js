@@ -68,8 +68,8 @@ async function sendApiOrder() {
     console.log(JSON.stringify(Cart));
     return;
 
-    // URL de l'API (à remplacer par la vraie URL)
-    const apiUrl = 'https://votreapi.com/endpoint';
+    // URL de l'API
+    const apiUrl = 'http://exam-back.cdacosta.mywebecom.ovh/receved_order_api.php';
 
     // Envoyer le panier au format JSON à l'API
     $.ajax({
