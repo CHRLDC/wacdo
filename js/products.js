@@ -39,7 +39,7 @@ async function loadProducts() {
     try {
         // Tente de récupérer les données des produits à partir du fichier
         //const productsData = await $.getJSON('./data/products.json');
-        const productsData = await $.getJSON('http://exam-back.cdacosta.mywebecom.ovh/products_api.php');
+        const productsData = await $.getJSON('https://exam-back.cdacosta.mywebecom.ovh/products_api.php'); //attention https
         // API demandée: 'http://exam-front.cdacosta.mywebecom.ovh/api_data/products.json' bloque sur github car le server n'est pas https
         // API provenant du back office: 'http://exam-back.cdacosta.mywebecom.ovh/products_api.php'
 
