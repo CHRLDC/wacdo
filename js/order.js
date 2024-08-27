@@ -44,7 +44,8 @@ async function sendApiOrder() {
     // Récupérer l'objet Cart depuis sessionStorage ou l'initialiser
     let Cart = initializeCart();
 
-    Cart.menu.forEach(async (menu) => {
+    // Utiliser une boucle for...of pour traiter chaque menu de manière asynchrone
+    for (let menu of Cart.menu) {
         if (menu.sauce) {
             menu.sauceId = await findProductIdByName(menu.sauce);
         }
@@ -54,13 +55,14 @@ async function sendApiOrder() {
         if (menu.drink) {
             menu.drinkId = await findProductIdByName(menu.drink);
         }
-    });
+    }
 
-    Cart.items.forEach(async (item) => {
+    // Utiliser une boucle for...of pour traiter chaque item de manière asynchrone
+    for (let item of Cart.items) {
         if (item.sauce) {
             item.sauceId = await findProductIdByName(item.sauce);
         }
-    });
+    }
 
     console.log("Panier mis à jour :", Cart);
 
