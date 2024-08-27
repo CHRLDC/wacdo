@@ -285,3 +285,30 @@ function resetDrinkSelected() {
     drinkQuantity = 1;
     $('.add-drink-cart').prop('disabled', true);
 }
+
+/**
+ * Retourner l'id du produit en donnant son name
+ * @param {string} name - Le nom du produit
+ * @returns {Promise<number|null>} id du produit ou null
+ */
+async function findProductIdByName(name) {
+    try {
+        const productsData = await loadProducts();
+        let productID = null;
+
+        // Combine tous les produits de différentes catégories en une seule liste
+        let allProducts = Object.values(productsData).flat();
+
+        // Trouver le produit par nom
+        allProducts.forEach(product => {
+            if (product.nom === name) {
+                productID = product.id;
+            }
+        });
+
+        return productID;
+    } catch (error) {
+        console.error("Erreur lors de la recherche de l'ID du produit:", error);
+        return null;
+    }
+}

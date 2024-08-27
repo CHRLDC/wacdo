@@ -294,6 +294,9 @@ $(document).on('click', '#accompaniment-menu #accompaniment-frites, #accompanime
     $(this).addClass('select-border');
     // Récupérer le choix de l'utilisateur
     selectedAccompaniment = $(this).attr('id').replace('accompaniment-', '');
+    if (selectedAccompaniment === 'salade') {
+        selectedAccompaniment = 'Petite Salade';
+    }
     // Rendre le bouton "Étape suivante" actif
     $('.to-sauce-choice').prop('disabled', false);
 });

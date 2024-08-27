@@ -1,0 +1,27 @@
+{
+    "orderNumber": 17,
+    "placeNumber": 547,
+    "orderType": "Sur place",
+    "items": [
+        {
+            "idOther": 42,
+            "name": "Nuggets x4",
+            "quantity": 1,
+            "price": 4.2,
+            "sauce": "Classic Moutarde"
+        }
+    ],
+    "menu": [
+        {
+            "idMenu": 2,
+            "name": "Menu Big Tasty",
+            "size": "normal",
+            "accompaniment": "salade",
+            "drink": "Coca Sans Sucres",
+            "sauce": "Classic Moutarde",
+            "price": 10.6,
+            "quantity": 1
+        }
+    ],
+    "total": "14,80"
+}

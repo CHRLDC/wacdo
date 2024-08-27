@@ -38,19 +38,39 @@ function generatePlaceNumber() {
 
 /**
  * Envoyer les informations du panier à l'API
- * @returns {void}
+ * @returns {Promise<void>}
  */
-function sendApiOrder() {
+async function sendApiOrder() {
     // Récupérer l'objet Cart depuis sessionStorage ou l'initialiser
     let Cart = initializeCart();
 
-    //Afficher en console enattendant d'avoir l'URL de l'API
-    console.log(`Panier en formant JSON envoyé à l'API:`);
-    console.log(JSON.stringify(Cart));
-    return
+    Cart.menu.forEach(async (menu) => {
+        if (menu.sauce) {
+            menu.sauceId = await findProductIdByName(menu.sauce);
+        }
+        if (menu.accompaniment) {
+            menu.accompanimentId = await findProductIdByName(menu.accompaniment);
+        }
+        if (menu.drink) {
+            menu.drinkId = await findProductIdByName(menu.drink);
+        }
+    });
 
-    // URL de l'API
-    const apiUrl = '';
+    Cart.items.forEach(async (item) => {
+        if (item.sauce) {
+            item.sauceId = await findProductIdByName(item.sauce);
+        }
+    });
+
+    console.log("Panier mis à jour :", Cart);
+
+    // Simuler l'envoi du panier à l'API en affichant le JSON en console
+    console.log(JSON.stringify(Cart));
+
+    return;
+
+    // URL de l'API (à remplacer par la vraie URL)
+    const apiUrl = 'https://votreapi.com/endpoint';
 
     // Envoyer le panier au format JSON à l'API
     $.ajax({
@@ -61,9 +81,11 @@ function sendApiOrder() {
         data: JSON.stringify(Cart),
         success: function (response) {
             // Si la requête réussit, afficher un message de succès
+            console.log("Commande envoyée avec succès !", response);
         },
         error: function (textStatus, errorThrown) {
             // Si la requête échoue, afficher un message d'erreur
+            console.error("Erreur lors de l'envoi de la commande:", textStatus, errorThrown);
         }
     });
 }
