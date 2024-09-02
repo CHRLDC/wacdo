@@ -325,6 +325,10 @@ header {
     right: 20px;
 }
 
+.container-products {
+    margin-bottom: 8px;
+}
+
 /* PANIER */
 .trash {
     width: 24px;
