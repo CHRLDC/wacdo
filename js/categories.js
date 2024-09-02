@@ -12,8 +12,9 @@ const categoryMap = {};
 async function loadCategories() {
     try {
         // Tente de récupérer les données des catégories à partir du fichier
-        data = await $.getJSON('http://exam-front.cdacosta.mywebecom.ovh/api_data/categories.json');
-        // API demandée: 'http://exam-front.cdacosta.mywebecom.ovh/api_data/categories.json' bloque sur github car pas https 
+        data = await $.getJSON('./data/categories.json');
+        // data = await $.getJSON('http://exam-front.cdacosta.mywebecom.ovh/api_data/categories.json');
+        // API demandée: 'http://exam-front.cdacosta.mywebecom.ovh/api_data/categories.json' bloque sur github car le server n'est pas https 
         // API provenant du back office: 'http://exam-back.cdacosta.mywebecom.ovh/categories_api.php'API backoffice
         fillCategoryMap(data);
         // Assainir les données à l'entrée

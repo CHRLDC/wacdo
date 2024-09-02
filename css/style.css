@@ -104,6 +104,10 @@
     margin-bottom: 20px;
 }
 
+.mB30 {
+    margin-bottom: 30px;
+}
+
 .mT20 {
     margin-top: 20px;
 }
@@ -199,6 +203,10 @@ button:active,
 
 .w80 {
     width: 80%;
+}
+
+.vh100 {
+    height: 100vh;
 }
 
 /* HEADER PANIER */
@@ -721,8 +729,7 @@ input[type="number"]::-webkit-inner-spin-button {
         top: 0px;
         left: 50%;
         transform: translate(-50%, 0);
-        height: 100vh;
-        padding: 16px 16px 150px 16px;
+        padding: 16px 16px 16px 16px;
     }
 
     #accompaniment-choice {

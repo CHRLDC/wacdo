@@ -8,7 +8,7 @@
     <meta name="description"
         content="Passez votre commande rapidement et facilement dans notre fast food. Choisissez entre une consommation sur place ou à emporter, Wacdo propose une gamme de produits et d’options, comprenant menus, burgers, boissons, sandwichs, desserts, et wraps.">
     <!-- Lien CSS -->
-    <link rel="stylesheet" href="./css/style.min.css">
+    <link rel="stylesheet" href="./css/style.css">
     <!-- Favicon -->
     <link rel="icon" type="image/ico" href="./favicon.ico">
     <title>Wadco - Passez votre commande</title>
@@ -73,7 +73,7 @@
 
         <!-- Liste des produits d'une catégorie sélectionnée -->
         <section id="products-choice" aria-labelledby="products-choice-title">
-            <h2 class="mB20">Liste des produits</h2>
+            <h2 class="mB30">Liste des produits</h2>
             <ul class="container-products flex justify-center gap25 align-center p32">
                 <!-- Liste des produits d'une catégorie générés par JS -->
             </ul>
@@ -149,7 +149,7 @@
         </section>
 
         <!-- Chemin menu: Choix de la sauce d'un menu -->
-        <section id="sauce-choice" class="container-pop-up" aria-labelledby="sauce-choice-title">
+        <section id="sauce-choice" class="container-pop-up vh100" aria-labelledby="sauce-choice-title">
             <div class="MS-mB20">
                 <div class="return-pop-up">
                     <button class="to-accompaniment-choice btn-back"
@@ -236,7 +236,7 @@
                     <input type="number" value="1" class="quantity-selector-value">
                     <span class="quantity-selector-increment btn-cta fs-40">+</span>
                 </div>
-                <div class="w100 flex justify-center gap32">
+                <div class="w100 flex justify-center gap32 MS-gap8">
                     <button class="to-products-drink btn-back" aria-label="Annuler la sélection">Annuler</button>
                     <button class="add-drink-cart btn-cta" disabled
                         aria-label="Ajouter la boisson à la commande">Ajouter à ma commande</button>
@@ -245,7 +245,7 @@
         </section>
 
         <!-- Hors catégorie menu: Choix d'une sauce hors menu -->
-        <section id="sauce-choice-alone" class="container-pop-up">
+        <section id="sauce-choice-alone" class="container-pop-up vh100">
             <div class="MS-mB20">
                 <div class="trash close-pop-up">
                     <img src="./img/images/supprimer.png" alt="Une croix pour fermer cette pop-up">
