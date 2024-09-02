@@ -64,12 +64,12 @@ async function sendApiOrder() {
         }
     }
 
-    // Simuler l'envoi du panier à l'API en affichant le JSON en console
-    //console.log(JSON.stringify(Cart));
-    //return;
+    // Simuler l'envoi du panier à l'API en affichant le JSON en console (commenter les deux lignes pour activer l'envoi au backoffice)
+    console.log(JSON.stringify(Cart));
+    return;
 
     // URL de l'API (prévoir d'ajouter une KEY si backoffice le demande)
-    const apiUrl = 'http://exam-back.cdacosta.mywebecom.ovh/receved_order_api.php';
+    const apiUrl = 'http://exam-back.cdacosta.mywebecom.ovh/receved_order_api.php'; // bloque à partir de github car server non https
 
     // Envoyer le panier au format JSON à l'API
     $.ajax({

@@ -157,7 +157,6 @@ function eventProductClick() {
             // Vérifier si le produit est déjà dans le panier
             let existingItem = Cart.items.find(item => item.idOther === detailsOther.idOther);
             if (existingItem) {
-                console.log("Le produit est déjà dans le panier : " + detailsOther.idOther);
                 // Mettre à jour la quantité
                 existingItem.quantity += 1;
             } else {

@@ -372,10 +372,13 @@ $(document).on('click', '.add-menu-cart', function () {
             // Sinon, ajouter le nouvel élément au panier avec une quantité de 1
             Cart.menu.push({ ...detailsMenu, quantity: 1 });
         }
-        console.log(Cart.menu);
+        // Reinitialiser les détails du menu
         resetDetailsMenu();
+        // Réinitialiser les choix selectionnés
         resetChoiceSelected();
+        // Mettre à jour le panier
         updateCartDisplay();
+        // Affichage
         showSection('#products-choice');
     }
 });
