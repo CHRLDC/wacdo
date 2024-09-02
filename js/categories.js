@@ -62,7 +62,11 @@ function displayCategories() {
     });
 }
 
-// Afficher le titre et le sous-titre
+/**
+ *  Afficher le titre et le sous-titre correspondant à la catégorie
+ * @param {*} divID 
+ * @param {*} category 
+ */
 function showTitle(divID, category) {
     loadTitlesCategories().then(categories => {
         // Trouver la catégorie correspondante

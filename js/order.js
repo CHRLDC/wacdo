@@ -65,7 +65,7 @@ async function sendApiOrder() {
     }
 
     // Simuler l'envoi du panier à l'API en affichant le JSON en console
-    console.log(JSON.stringify(Cart));
+    //console.log(JSON.stringify(Cart));
     //return;
 
     // URL de l'API (prévoir d'ajouter une KEY si backoffice le demande)
@@ -80,7 +80,7 @@ async function sendApiOrder() {
         data: JSON.stringify(Cart),
         success: function (response) {
             // Si la requête réussit, afficher un message de succès
-            console.log("Commande envoyée avec succès !", response);
+            console.log("Commande envoyée au backoffice");
         },
         error: function (textStatus, errorThrown) {
             // Si la requête échoue, afficher un message d'erreur

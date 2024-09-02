@@ -111,7 +111,7 @@ function generateMenuItems(Cart) {
         menuItemsHtml += `
         <li class="no-style-list mB20 flex justify-between">
             <div>
-                    <p class="fw-bold title-cart-menu">1 Menu ${sizeText} ${menuName}</p>
+                    <p class="fw-bold title-cart-menu">${menu.quantity} Menu ${sizeText} ${menuName}</p>
                 <ul class="mL30">
                     <li>${menu.accompaniment}</li>
                     <li>${menu.drink}</li>
@@ -279,7 +279,9 @@ $(window).on('resize', function () {
     mediaScreanCart();
 });
 
-// Fonction pour afficher le nombre de produits dans le bouton panier (MS)
+/**
+ * Afficher le nombre de produits dans le panier
+ */
 function displayNbProductsCart() {
     // Récupérer l'objet Cart depuis sessionStorage ou l'initialiser
     let Cart = initializeCart();
@@ -298,7 +300,11 @@ $(function () {
     displayNbProductsCart();
 });
 
-// Fonction pour calculer le nombre total de produits dans le panier
+/**
+ * Calculer le nombre de produits dans le panier
+ * @param {*} Cart 
+ * @returns 
+ */
 function calculateNbProductsCart(Cart) {
     let nbProductsCart = 0;
     // Additionner les quantités des items individuels
@@ -310,6 +316,23 @@ function calculateNbProductsCart(Cart) {
         nbProductsCart += menu.quantity;
     });
     return nbProductsCart;
+}
+
+/**
+ *  Trouver un item dans le panier déjà existant
+ * @param {*} cart 
+ * @param {*} item 
+ * @returns retourner un item
+ */
+function findCartItem(cart, item) {
+    return cart.find(cartItem => {
+        // Comparer les propriétés pertinentes de l'article pour identifier un element déja existant
+        return cartItem.size === item.size &&
+            cartItem.sauce === item.sauce &&
+            cartItem.drink === item.drink &&
+            cartItem.accompaniment === item.accompaniment;
+    });
+
 }
 
 // Gestion du bouton panier dans écran MS

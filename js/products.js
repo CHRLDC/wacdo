@@ -154,11 +154,20 @@ function eventProductClick() {
             showSection('#sauce-choice-alone');
         } else {
             setBaseOther(product);
-            // Ajouter le choix au panier
-            Cart.items.push({ ...detailsOther });
+            // Vérifier si le produit est déjà dans le panier
+            let existingItem = Cart.items.find(item => item.idOther === detailsOther.idOther);
+            if (existingItem) {
+                console.log("Le produit est déjà dans le panier : " + detailsOther.idOther);
+                // Mettre à jour la quantité
+                existingItem.quantity += 1;
+            } else {
+                // Ajouter le choix au panier avec une quantité de 1
+                Cart.items.push({ ...detailsOther, quantity: 1 });
+            }
             // Mettre à jour l'affichage du panier
             updateCartDisplay();
         }
+
     });
 }
 

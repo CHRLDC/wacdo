@@ -207,20 +207,24 @@ $(document).on('click', '.quantity-selector-decrement', function () {
 // Quand l'utilisateur clique sur "Ajouter à ma commande" (boisson)
 $(document).on('click', '.add-drink-cart', function () {
     if (selectedDrinkSize) {
-        // Mettre à jour les détails de la boisson sélectionnée
         detailsDrink.size = selectedDrinkSize;
         detailsDrink.quantity = drinkQuantity;
-        // Ajouter la boisson au panier
-        Cart.items.push({ ...detailsDrink });
-        // Mettre à jour l'affichage du panier et revenir aux catégories
+
+        let existingDrink = findCartItem(Cart.items, detailsDrink);
+        if (existingDrink) {
+            // Si la boisson existe déjà, incrémenter la quantité
+            existingDrink.quantity += drinkQuantity;
+        } else {
+            // Sinon, ajouter la nouvelle boisson au panier
+            Cart.items.push({ ...detailsDrink });
+        }
+
         updateCartDisplay();
         showSection('#products-choice');
-        // Réinitialiser les sélections pour la prochaine boisson
         selectedDrinkSize = null;
         drinkQuantity = 1;
         $('input[type="number"]').val(drinkQuantity);
         $('#drink-size-buttons button').removeClass('select-border');
-        // Désactiver à nouveau le bouton "Ajouter à ma commande"
         $('.add-drink-cart').prop('disabled', true);
     }
 });
@@ -244,17 +248,26 @@ $(document).on('click', '#sauce-choice-alone .btn-choice', function () {
 
 // Quand l'utilisateur clique sur "Ajouter au panier" (nuggets)
 $('.add-encas-cart').off('click').on('click', function () {
-    // Si une sauce est sélectionnée
     if (selectedSauceAlone) {
         // Mettre à jour les détails des nuggets avec la sauce choisie
         detailsOther.sauce = selectedSauceAlone;
-        // Ajouter les nuggets au panier avec la sauce choisie
-        Cart.items.push({ ...detailsOther });
+
+        // Chercher l'élément dans le panier
+        let existingItem = findCartItem(Cart.items, detailsOther);
+        if (existingItem) {
+            // Si l'élément existe déjà, incrémenter la quantité
+            existingItem.quantity += 1;
+        } else {
+            // Sinon, ajouter le nouvel élément au panier avec une quantité de 1
+            Cart.items.push({ ...detailsOther, quantity: 1 });
+        }
+
         // Mettre à jour l'affichage du panier et revenir à la sélection des catégories
         updateCartDisplay();
         showSection('#products-choice');
     }
 });
+
 
 // Quand l'utilisateur choisit un menu
 
@@ -348,19 +361,21 @@ $(document).on('click', '#drink-choice ul .btn-choice', function () {
 
 // Quand l'utilisateur clique sur "Ajouter le menu à ma commande"
 $(document).on('click', '.add-menu-cart', function () {
-    // Si une boisson est sélectionnée
     if (selectedDrink) {
-        // Mettre à jour les détails du menu
         detailsMenu.drink = selectedDrink;
-        // Ajouter les détails du menu à Cart.menu
-        Cart.menu.push({ ...detailsMenu });
-        // Réinitialiser detailsMenu pour le prochain ajout
-        resetDetailsMenu()
-        // Réinitialiser les selected
-        resetChoiceSelected()
-        // Mettre à jour l'affichage du panier
+        // Chercher l'élément dans le panier
+        let existingItem = findCartItem(Cart.menu, detailsMenu);
+        if (existingItem) {
+            // Si l'élément existe déjà, incrémenter la quantité
+            existingItem.quantity += 1;
+        } else {
+            // Sinon, ajouter le nouvel élément au panier avec une quantité de 1
+            Cart.menu.push({ ...detailsMenu, quantity: 1 });
+        }
+        console.log(Cart.menu);
+        resetDetailsMenu();
+        resetChoiceSelected();
         updateCartDisplay();
-        //Afficher les catégories
         showSection('#products-choice');
     }
 });
